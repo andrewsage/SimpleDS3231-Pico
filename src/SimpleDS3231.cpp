@@ -86,13 +86,13 @@
 
 #define ASCII_OFFSET        48
 
-SimpleDS3231::SimpleDS3231()
+SimpleDS3231::SimpleDS3231(uint sda_pin, uint scl_pin)
 {
     i2c_init(i2c_default, 400000);
-    gpio_set_function(PICO_DEFAULT_I2C_SDA_PIN, GPIO_FUNC_I2C);
-    gpio_set_function(PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C);
-    gpio_pull_up(PICO_DEFAULT_I2C_SDA_PIN);
-    gpio_pull_up(PICO_DEFAULT_I2C_SCL_PIN);
+    gpio_set_function(sda_pin, GPIO_FUNC_I2C);
+    gpio_set_function(scl_pin, GPIO_FUNC_I2C);
+    gpio_pull_up(sda_pin);
+    gpio_pull_up(scl_pin);
 }
 
 void SimpleDS3231::_read_data_reg(uint8_t reg, uint8_t n_regs)

@@ -39,7 +39,7 @@ private:
     uint8_t             _encode_hou(uint8_t hou, bool am_pm_format, bool is_pm);
 
 public:
-    SimpleDS3231();
+    SimpleDS3231(uint sda_pin = PICO_DEFAULT_I2C_SDA_PIN, uint scl_pin = PICO_DEFAULT_I2C_SCL_PIN);
 
     uint8_t             get_temp();
 
